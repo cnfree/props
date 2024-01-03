@@ -49,7 +49,7 @@ func ReadContentType(content string) ContentType {
 				if strings.HasPrefix(str, c) {
 					ctyp := strings.TrimSpace(str[len(c):])
 					if ctyp == "" {
-						return TextContentType
+						return ContentYaml
 					} else {
 						return ContentType(str[len(c):])
 					}
@@ -61,7 +61,7 @@ func ReadContentType(content string) ContentType {
 			break
 		}
 	}
-	return TextContentType
+	return ContentYaml
 }
 
 type ConfigSource interface {

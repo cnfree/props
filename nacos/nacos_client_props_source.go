@@ -40,7 +40,7 @@ type NacosClientPropsConfigSource struct {
 
 func newNacosClientPropsConfigSource(address, group, dataId, namespaceId string) *NacosClientPropsConfigSource {
 	s := &NacosClientPropsConfigSource{}
-	name := strings.Join([]string{"Nacos", address}, ":")
+	name := strings.Join([]string{"Nacos", address, namespaceId, dataId}, ":")
 	s.name = name
 	s.DataId = dataId
 	s.Group = group
