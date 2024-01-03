@@ -3,6 +3,7 @@ package nacos
 import (
 	"bytes"
 	"github.com/cnfree/props/v3/kvs"
+	"github.com/cnfree/props/v3/util"
 	"github.com/nacos-group/nacos-sdk-go/v2/clients"
 	"github.com/nacos-group/nacos-sdk-go/v2/clients/config_client"
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
@@ -39,19 +40,20 @@ type NacosClientPropsConfigSource struct {
 }
 
 func newNacosClientPropsConfigSource(address, group, dataId, namespaceId string) *NacosClientPropsConfigSource {
+	dir := util.GetExecuteFilePath()
 	s := &NacosClientPropsConfigSource{}
 	name := strings.Join([]string{"Nacos", address, namespaceId, dataId}, ":")
 	s.name = name
 	s.DataId = dataId
 	s.Group = group
 	s.ClientConfig = &constant.ClientConfig{
-		TimeoutMs:            10 * 1000,       //请求Nacos服务端的超时时间，默认是10000ms
-		BeatInterval:         5 * 1000,        //心跳间隔时间，单位毫秒（仅在ServiceClient中有效）
-		CacheDir:             "./nacos/cache", //缓存目录
-		LogDir:               "./nacos/log",   //日志目录
-		UpdateThreadNum:      20,              //更新服务的线程数
-		NotLoadCacheAtStart:  true,            //在启动时不读取本地缓存数据，true--不读取，false--读取
-		UpdateCacheWhenEmpty: false,           //当服务列表为空时是否更新本地缓存，true--更新,false--不更新,当service返回的实例列表为空时，不更新缓存，用于推空保护
+		TimeoutMs:            10 * 1000, //请求Nacos服务端的超时时间，默认是10000ms
+		BeatInterval:         5 * 1000,  //心跳间隔时间，单位毫秒（仅在ServiceClient中有效）
+		LogDir:               dir + "/../data/nacos/logs",
+		CacheDir:             dir + "/../data/nacos/cache",
+		UpdateThreadNum:      20,    //更新服务的线程数
+		NotLoadCacheAtStart:  true,  //在启动时不读取本地缓存数据，true--不读取，false--读取
+		UpdateCacheWhenEmpty: false, //当服务列表为空时是否更新本地缓存，true--更新,false--不更新,当service返回的实例列表为空时，不更新缓存，用于推空保护
 		//RotateTime:           "1h",            // 日志轮转周期，比如：30m, 1h, 24h, 默认是24h
 		//MaxAge:               3,               // 日志最大文件数，默认3
 	}
