@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/tietang/props/v3/nacos"
+	"github.com/cnfree/props/v3/nacos"
 )
 
 func main() {

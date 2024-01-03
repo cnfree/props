@@ -2,16 +2,16 @@ package consul
 
 import (
 	"bytes"
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/hashicorp/consul/api"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/kvs"
 	"strings"
 	"time"
 )
 
-//通过key/properties, key作为section，value为props格式内容，类似ini文件格式
-//Deprecated
-//看看ConsulConfigSource
+// 通过key/properties, key作为section，value为props格式内容，类似ini文件格式
+// Deprecated
+// 看看ConsulConfigSource
 type ConsulPropsConfigSource struct {
 	kvs.MapProperties
 	name   string
@@ -21,12 +21,12 @@ type ConsulPropsConfigSource struct {
 	config *api.Config
 }
 
-//Deprecated
+// Deprecated
 func NewConsulPropsConfigSource(address, root string) *ConsulPropsConfigSource {
 	return NewConsulPropsConfigSourceByName("consul", address, root, CONSUL_WAIT_TIME)
 }
 
-//Deprecated
+// Deprecated
 func NewConsulPropsConfigSourceByName(name, address, root string, timeout time.Duration) *ConsulPropsConfigSource {
 	s := &ConsulPropsConfigSource{}
 	if name == "" {

@@ -1,8 +1,8 @@
 package ini
 
 import (
+	"github.com/cnfree/props/v3/kvs"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/kvs"
 	"io"
 	"path"
 	"path/filepath"
@@ -12,7 +12,7 @@ const (
 	KEY_INI_CURRENT_DIR = "ini.current.dir"
 )
 
-//ini 文件支持
+// ini 文件支持
 type IniFileConfigSource struct {
 	kvs.MapProperties
 	name     string

@@ -1,11 +1,11 @@
 package zk
 
 import (
+	"github.com/cnfree/props/v3/ini"
+	"github.com/cnfree/props/v3/kvs"
+	"github.com/cnfree/props/v3/yam"
 	"github.com/samuel/go-zookeeper/zk"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/ini"
-	"github.com/tietang/props/v3/kvs"
-	"github.com/tietang/props/v3/yam"
 	"path"
 	"strings"
 )

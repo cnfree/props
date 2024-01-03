@@ -1,4 +1,4 @@
-module github.com/tietang/props/v3
+module github.com/cnfree/props/v3
 
 go 1.19
 

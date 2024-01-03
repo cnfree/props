@@ -1,11 +1,11 @@
 package main
 
 import (
-	//"github.com/tietang/props"
+	//"github.com/cnfree/props"
 	//"fmt"
 	//"time"
 	"fmt"
-	"github.com/tietang/props/v3/kvs"
+	"github.com/cnfree/props/v3/kvs"
 )
 
 func mainx() {

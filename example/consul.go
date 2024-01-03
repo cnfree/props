@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/cnfree/props/v3/consul"
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/hashicorp/consul/api"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/consul"
-	"github.com/tietang/props/v3/kvs"
 	"time"
 )
 

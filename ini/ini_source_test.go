@@ -1,8 +1,8 @@
 package ini
 
 import (
+	"github.com/cnfree/props/v3/kvs"
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/tietang/props/v3/kvs"
 	"testing"
 )
 

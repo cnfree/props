@@ -1,8 +1,8 @@
 package ini
 
 import (
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/kvs"
 	"io/ioutil"
 	"strings"
 )

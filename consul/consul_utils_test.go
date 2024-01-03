@@ -1,7 +1,7 @@
 package consul
 
 import (
-	"github.com/tietang/props/v3/kvs"
+	"github.com/cnfree/props/v3/kvs"
 	"net/http"
 	"time"
 )
