@@ -1,14 +1,14 @@
 package etcd
 
 import (
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/coreos/etcd/client"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/kvs"
 	"strings"
 	"time"
 )
 
-//通过key/value来组织，过滤root prefix后，替换/为.作为properties key
+// 通过key/value来组织，过滤root prefix后，替换/为.作为properties key
 type EtcdV2KeyValueConfigSource struct {
 	EtcdV2ConfigSource
 }

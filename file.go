@@ -2,8 +2,8 @@ package props
 
 import (
 	"errors"
-	"github.com/tietang/props/v3/ini"
-	"github.com/tietang/props/v3/kvs"
+	"github.com/cnfree/props/v3/ini"
+	"github.com/cnfree/props/v3/kvs"
 	"path/filepath"
 	"strings"
 )

@@ -2,15 +2,15 @@ package nacos
 
 import (
 	"encoding/json"
+	"github.com/cnfree/props/v3/ini"
+	"github.com/cnfree/props/v3/kvs"
+	"github.com/cnfree/props/v3/yam"
 	"github.com/nacos-group/nacos-sdk-go/vo"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/ini"
-	"github.com/tietang/props/v3/kvs"
-	"github.com/tietang/props/v3/yam"
 	"strings"
 )
 
-//通过key/value来组织，过滤root prefix后，替换/为.作为properties key
+// 通过key/value来组织，过滤root prefix后，替换/为.作为properties key
 type NacosClientConfigSource struct {
 	NacosClientPropsConfigSource
 }
@@ -18,7 +18,7 @@ type NacosClientConfigSource struct {
 func NewNacosClientConfigSource(address, group, dataId, namespaceId string) *NacosClientConfigSource {
 	s := &NacosClientConfigSource{}
 
-	name := strings.Join([]string{"Nacos", address}, ":")
+	name := strings.Join([]string{"Nacos", address, namespaceId, dataId}, ":")
 	s.name = name
 	s.DataId = dataId
 	s.Group = group

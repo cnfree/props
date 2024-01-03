@@ -7,12 +7,12 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/common/nacos_error"
 	"github.com/nacos-group/nacos-sdk-go/util"
 	uuid "github.com/satori/go.uuid"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/kvs"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -40,7 +40,7 @@ const (
 
 var _ kvs.ConfigSource = new(NacosPropsConfigSource)
 
-//通过key/value来组织，过滤root prefix后，替换/为.作为properties key
+// 通过key/value来组织，过滤root prefix后，替换/为.作为properties key
 // Deprecated: 使用NacosClientPropsConfigSource NewNacosClientPropsConfigSource()
 type NacosPropsConfigSource struct {
 	kvs.MapProperties

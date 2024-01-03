@@ -1,9 +1,9 @@
 package ini
 
 import (
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/go-ini/ini"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/kvs"
 	"io"
 	"os"
 	"strings"

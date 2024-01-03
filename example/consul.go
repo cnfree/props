@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
+	"github.com/cnfree/props/v3/consul"
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/hashicorp/consul/api"
 	"github.com/prometheus/common/log"
-	"github.com/tietang/props/v3/consul"
-	"github.com/tietang/props/v3/kvs"
 	"time"
 )
 
-/**
+/*
+*
 
 conf/ini/demo1 = `
 
@@ -23,25 +24,20 @@ y1=val1
 
 `
 
-
 conf/ini_props/ =
 conf/ini_props/x0 = y0=val0
 y1=val1
 conf/ini_props/x1 = y1=val1
 
-
 conf/kv/ =
 conf/kv/x0/y0 = val0
 conf/kv/x1/y1 = val1
-
 
 conf/props/ =
 conf/props/demo1 = x0.y0=val0
 x1.y1=val1
 conf/props/demo2 = k.y=val0
 k2.y2=val2
-
-
 */
 func main_3() {
 	address := "127.0.0.1:8500"

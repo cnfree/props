@@ -3,18 +3,18 @@ package apollo
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/cnfree/props/v3/ini"
+	"github.com/cnfree/props/v3/kvs"
+	"github.com/cnfree/props/v3/yam"
 	log "github.com/sirupsen/logrus"
 	"github.com/tietang/go-utils"
-	"github.com/tietang/props/v3/ini"
-	"github.com/tietang/props/v3/kvs"
-	"github.com/tietang/props/v3/yam"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
-//通过key/value来组织，过滤root prefix后，替换/为.作为properties key
+// 通过key/value来组织，过滤root prefix后，替换/为.作为properties key
 type ApolloConfigSource struct {
 	kvs.MapProperties
 	name        string

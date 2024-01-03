@@ -1,10 +1,10 @@
 # props
 
-[![Build Status](https://travis-ci.org/tietang/props.svg?branch=master)](<https://travis-ci.org/tietang/props>)
-[![GoDoc Documentation](http://godoc.org/github.com/tietang/props?status.png)](<https://godoc.org/github.com/tietang/props>)
-[![Sourcegraph](https://sourcegraph.com/github.com/tietang/props/-/badge.svg)](https://sourcegraph.com/github.com/tietang/props?badge)
-[![Coverage Status](https://coveralls.io/repos/github/tietang/props/badge.svg?branch=master)](https://coveralls.io/github/tietang/props?branch=master)
-[![GitHub release](https://img.shields.io/github/release/tietang/props.svg)](https://github.com/tietang/props/releases)
+[![Build Status](https://travis-ci.org/cnfree/props.svg?branch=master)](<https://travis-ci.org/cnfree/props>)
+[![GoDoc Documentation](http://godoc.org/github.com/cnfree/props?status.png)](<https://godoc.org/github.com/cnfree/props>)
+[![Sourcegraph](https://sourcegraph.com/github.com/cnfree/props/-/badge.svg)](https://sourcegraph.com/github.com/cnfree/props?badge)
+[![Coverage Status](https://coveralls.io/repos/github/cnfree/props/badge.svg?branch=master)](https://coveralls.io/github/cnfree/props?branch=master)
+[![GitHub release](https://img.shields.io/github/release/cnfree/props.svg)](https://github.com/cnfree/props/releases)
 
  
 
@@ -49,7 +49,7 @@
 
 ## Install
 
-> go get -u github.com/tietang/props/v3
+> go get -u github.com/cnfree/props/v3
 
 **或者通过go mod：**
 

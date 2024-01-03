@@ -1,8 +1,8 @@
 package yam
 
 import (
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/prometheus/common/log"
-	"github.com/tietang/props/v3/kvs"
 	"strings"
 )
 

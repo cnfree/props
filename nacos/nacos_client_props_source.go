@@ -2,19 +2,19 @@ package nacos
 
 import (
 	"bytes"
+	"github.com/cnfree/props/v3/kvs"
 	"github.com/nacos-group/nacos-sdk-go/clients"
 	"github.com/nacos-group/nacos-sdk-go/clients/config_client"
 	"github.com/nacos-group/nacos-sdk-go/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/vo"
 	log "github.com/sirupsen/logrus"
-	"github.com/tietang/props/v3/kvs"
 	"strconv"
 	"strings"
 )
 
 var _ kvs.ConfigSource = new(NacosClientPropsConfigSource)
 
-//通过key/value来组织，过滤root prefix后，替换/为.作为properties key
+// 通过key/value来组织，过滤root prefix后，替换/为.作为properties key
 type NacosClientPropsConfigSource struct {
 	kvs.MapProperties
 	// Required Configuration ID. Use a naming rule similar to package.class (for example, com.taobao.tc.refund.log.level) to ensure global uniqueness. It is recommended to indicate business meaning of the configuration in the "class" section. Use lower case for all characters. Use alphabetical letters and these four special characters (".", ":", "-", "_") only. Up to 256 characters are allowed.
