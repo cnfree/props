@@ -17,7 +17,7 @@ type NacosClientConfigSource struct {
 	NacosClientPropsConfigSource
 }
 
-func NewNacosClientConfigSource(address, group, dataId, namespaceId string) *NacosClientConfigSource {
+func NewNacosClientConfigSource(address, group, dataId, namespaceId string, userName string, password string) *NacosClientConfigSource {
 	s := &NacosClientConfigSource{}
 
 	name := strings.Join([]string{"Nacos", address, namespaceId, dataId}, ":")
@@ -26,18 +26,18 @@ func NewNacosClientConfigSource(address, group, dataId, namespaceId string) *Nac
 	s.Group = group
 	s.NamespaceId = namespaceId
 	s.Values = make(map[string]string)
-	s.NacosClientPropsConfigSource = *newNacosClientPropsConfigSource(address, group, dataId, namespaceId)
+	s.NacosClientPropsConfigSource = *newNacosClientPropsConfigSource(address, group, dataId, namespaceId, userName, password)
 	s.NacosClientPropsConfigSource.listenConfig()
 	s.init()
 
 	return s
 }
 
-func NewNacosClientCompositeConfigSource(address, group, namespaceId string, dataIds []string) *kvs.CompositeConfigSource {
+func NewNacosClientCompositeConfigSource(address, group, namespaceId string, dataIds []string, userName string, password string) *kvs.CompositeConfigSource {
 	s := kvs.NewEmptyNoSystemEnvCompositeConfigSource()
 	s.ConfName = "NacosKevValue"
 	for _, dataId := range dataIds {
-		c := NewNacosClientConfigSource(address, group, dataId, namespaceId)
+		c := NewNacosClientConfigSource(address, group, dataId, namespaceId, userName, password)
 		s.Add(c)
 	}
 

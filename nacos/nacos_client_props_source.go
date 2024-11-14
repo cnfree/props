@@ -39,7 +39,7 @@ type NacosClientPropsConfigSource struct {
 	Client        config_client.IConfigClient
 }
 
-func newNacosClientPropsConfigSource(address, group, dataId, namespaceId string) *NacosClientPropsConfigSource {
+func newNacosClientPropsConfigSource(address, group, dataId, namespaceId string, userName string, password string) *NacosClientPropsConfigSource {
 	dir := util.GetExecuteFilePath()
 	s := &NacosClientPropsConfigSource{}
 	name := strings.Join([]string{"Nacos", address, namespaceId, dataId}, ":")
@@ -57,6 +57,15 @@ func newNacosClientPropsConfigSource(address, group, dataId, namespaceId string)
 		//RotateTime:           "1h",            // 日志轮转周期，比如：30m, 1h, 24h, 默认是24h
 		//MaxAge:               3,               // 日志最大文件数，默认3
 	}
+
+	if userName != "" {
+		s.ClientConfig.Username = userName
+	}
+
+	if password != "" {
+		s.ClientConfig.Password = password
+	}
+
 	if len(namespaceId) > 0 {
 		s.ClientConfig.NamespaceId = namespaceId
 		s.NamespaceId = namespaceId
@@ -101,18 +110,18 @@ func newNacosClientPropsConfigSource(address, group, dataId, namespaceId string)
 
 	return s
 }
-func NewNacosClientPropsConfigSource(address, group, dataId, namespaceId string) *NacosClientPropsConfigSource {
-	s := newNacosClientPropsConfigSource(address, group, dataId, namespaceId)
+func NewNacosClientPropsConfigSource(address, group, dataId, namespaceId string, userName string, password string) *NacosClientPropsConfigSource {
+	s := newNacosClientPropsConfigSource(address, group, dataId, namespaceId, userName, password)
 	s.init()
 
 	return s
 }
 
-func NewNacosClientPropsCompositeConfigSource(address, group, tenant string, dataIds []string) *kvs.CompositeConfigSource {
+func NewNacosClientPropsCompositeConfigSource(address, group, tenant string, dataIds []string, userName string, password string) *kvs.CompositeConfigSource {
 	s := kvs.NewEmptyNoSystemEnvCompositeConfigSource()
 	s.ConfName = "NacosKevValue"
 	for _, dataId := range dataIds {
-		c := NewNacosClientPropsConfigSource(address, group, dataId, tenant)
+		c := NewNacosClientPropsConfigSource(address, group, dataId, tenant, userName, password)
 		s.Add(c)
 	}
 
